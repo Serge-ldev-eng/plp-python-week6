@@ -1,0 +1,37 @@
+def safe_divide(a, b):
+    try:
+        return a / b
+    except ZeroDivisionError:
+        return "Cannot divide by zero"
+
+
+def safe_number(text):
+    try:
+        return int(text)
+    except ValueError:
+        return "Not a number"
+
+
+def get_field(learner, key):
+    try:
+        return learner[key]
+    except KeyError:
+        return "Field not found"
+
+
+print(safe_divide(10, 2))
+print(safe_divide(10, 0))
+print(safe_number("42"))
+print(safe_number("abc"))
+
+learner = {"name": "Amina", "score": 82}
+print(get_field(learner, "score"))
+print(get_field(learner, "email"))
+It should print:
+
+5.0
+Cannot divide by zero
+42
+Not a number
+82
+Field not found
